@@ -57,45 +57,60 @@
 		</div>
 		<div id = "HIDE">
 			<textarea name="name"><?php echo $id; ?></textarea>
-		</div>
-	</form>
-	</body>
-</html>
+
 <?php
 	}
 	
+	//FUNCTION FOR CHECKING FILE EXTENSION
+		 function findexts ($filename) 
+		 { 
+		 $filename = strtolower($filename) ; 
+		 $exts = split("[/\\.]", $filename) ; 
+		 $n = count($exts)-1; 
+		 $exts = $exts[$n]; 
+		 return $exts; 
+		 }
+	
 	//IF-CONDITION FOR REPLACING THE IMAGE
-	if(isset($_GET['image'])){
+	if(isset($_POST['image'])){
 		
-		if($_FILES['uploaded']['name'] != null){
-			//This applies the function to our file  
-			$ext = findexts ($_FILES['uploaded']['name']) ;
-			//This line assigns a random number to a variable.
-			$ran = rand () ;
-			$ran2 = $ran.".";
-			//This assigns the subdirectory you want to save into... make sure it exists!
-			$target = "images/";
-			//This combines the directory, the random file name, and the extension
-			$target = $target . $ran2.$ext;
-			//uploads the image file
-			move_uploaded_file($_FILES['uploaded']['tmp_name'], $target);
-		}
+		//UPLOADS IMAGE FILES
+			if($_FILES['uploaded']['name'] != null){
+				//This applies the function to our file  
+				$ext = findexts ($_FILES['uploaded']['name']) ;
+				//This line assigns a random number to a variable.
+				$ran = rand () ;
+				$ran2 = $ran.".";
+				//This assigns the subdirectory you want to save into... make sure it exists!
+				$target = "images/";
+				//This combines the directory, the random file name, and the extension
+				$target = $target . $ran2.$ext;
+				//uploads the image file
+				move_uploaded_file($_FILES['uploaded']['tmp_name'], $target);
+			}
+			//END-UPLOAD
 		
-		$query1 = "UPDATE blogs SET image = ".$ran2." where blog_id =".$_POST['name'].";";
+		$query1 = "UPDATE blogs SET image = '".$ran2.$ext."' where blog_id =".$_POST['name'].";";
+		//echo $query1;
 		$result1 = pg_query($pgsql_conn, $query1);
 	}else
 	//IF-CONDITION FOR EDITING IMAGE CAPTION
-	if(isset($_GET['captionS'])){
-		$query2 = "UPDATE blogs SET caption = ".$_POST['caption']." where blog_id =".$_POST['name'].";";
-		
+	if(isset($_POST['captionS'])){
+		$query2 = "UPDATE blogs SET caption = '".$_POST['caption']."' where blog_id =".$_POST['name'].";";
+		//echo $query2;
 		$result2 = pg_query($pgsql_conn, $query2);
 	}else
 	//IF-CONDITION FOR EDITING DIARY BLOG
-	if(isset($_GET['text'])){
-		 $File = $id.".txt"; 
+	if(isset($_POST['blogS'])){
+		 $File = "entries/".$id.".txt"; 
 		 $Handle = fopen($File, 'w');
 		 $Data = $_POST['text']; 
+		 echo $Data;
 		 fwrite($Handle, $Data);
 		 fclose($Handle); 
 	}
 ?>
+		</div>
+	</form>
+	</body>
+</html>
