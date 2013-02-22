@@ -12,6 +12,8 @@ CREATE TABLE usertry
   bday character varying(20),
   email character varying(50),
   gender character varying(10),
+  dpic character varying,
+  about character varying(300),
   CONSTRAINT username PRIMARY KEY (username )
 )
 WITH (

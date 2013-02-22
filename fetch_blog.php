@@ -1,4 +1,7 @@
 <?php
+	
+	//CAN BE USED FOR HOME TO SHOW EACH BLOG ENTRIES CHRONOLOGICALLY
+
 	session_start();
 	
     $pgsql_conn = pg_connect("dbname=postgres host=localhost user=postgres password=12345");
