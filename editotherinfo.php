@@ -25,8 +25,8 @@
 			$newpass = null;
 			if(isset($_POST['old']))
 			{
-				$query = "select password from usertry where username=$uname";
-				$res = pg_query($dbconn, $query);
+				$query = "select pword from usertry where username='$uname'";
+				$res = pg_query($pgsql_conn, $query);
 				$row = pg_fetch_row($res);
 				if(md5($_POST['old']) == $row[0]){
 					if( $_POST['new1'] == $_POST['new2'] )
