@@ -97,11 +97,8 @@
 			else
 				$captionV = null;
 			
-			//INSERTS INTO THE DATABASE
-			$query = "INSERT INTO blogs VALUES('".$ran3."', now(), '".$ran2.$ext."', '". $titleV."', '". $captionV."', '"."adrianbiton"."');";
-			
 			//real query
-			//$query = "INSERT INTO blogs VALUES('".$ran3."', now(), '".$ran2.$ext."', '". $titleV."', '". $captionV."', '".$_SESSION['id']."');";
+			$query = "INSERT INTO blogs VALUES('".$ran3."', now(), '".$ran2.$ext."', '". $titleV."', '". $captionV."', '".$_SESSION['id']."');";
 			
 			echo $query;
 			$result = pg_exec($pgsql_conn, $query) or die('Query failed: ' . pg_last_error());

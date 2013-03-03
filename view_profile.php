@@ -28,17 +28,18 @@
 	$query = "SELECT COUNT(DISTINCT from_star) FROM stars where to_star = '".$find."';";
 	
 	$result2 = pg_query($pgsql_conn, $query);	
-	
+	$row = pg_fetch_array($result2);
 	echo "Star count:";
 	echo $result2;
+	echo "<br/>";
 	
 	//SHOULD INDICATE IF THE SIGNED USER ALREADY STARRED THE OTHER USER
 	
 	$query = "SELECT COUNT(from_star) FROM stars where to_star = '".$find."' and from_star = '".$_SESSION['id']."';";
 	$result3 = pg_query($pgsql_conn, $query);
-	
+	$row = pg_fetch_array($result3);
 	//1 -> the signed in user already starred the other user
-	if( $result3 = 1 ){
+	if( $row = 1 ){
 		echo "Starred";
 	}
 	else{
