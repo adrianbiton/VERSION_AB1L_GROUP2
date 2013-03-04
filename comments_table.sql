@@ -4,14 +4,15 @@
 
 CREATE TABLE comments
 (
+  for_who character varying NOT NULL,
+  from_who character varying NOT NULL,
   comment character varying NOT NULL,
-  "from" character varying NOT NULL,
-  "to" character varying NOT NULL,
-  CONSTRAINT "from_to_PK" PRIMARY KEY ("from" , "to" ),
-  CONSTRAINT "from_FK" FOREIGN KEY ("from")
+  "time" timestamp with time zone NOT NULL,
+  CONSTRAINT "from_to_time_comment_PK" PRIMARY KEY (for_who , from_who , "time" , comment ),
+  CONSTRAINT "for_who_FK" FOREIGN KEY (for_who)
       REFERENCES usertry (username) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT "to_FK" FOREIGN KEY ("to")
+  CONSTRAINT "from_who_FK" FOREIGN KEY (from_who)
       REFERENCES usertry (username) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )

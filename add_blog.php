@@ -56,10 +56,11 @@
 		 $n = count($exts)-1; 
 		 $exts = $exts[$n]; 
 		 return $exts; 
-		 }
+		 } 
 		 
 		if(isset($_POST['add_blog'])){
-		
+			
+			
 			//UPLOADS IMAGE FILES
 			if($_FILES['uploaded']['name'] != null){
 				//This applies the function to our file  
@@ -83,7 +84,7 @@
 			$filehandle = fopen($filesave, 'w') or die("can't open file");
 			$data = $_POST['text'];
 			fwrite( $filehandle, $data );
-			print "Data written";
+			print "Blog Published!<br/>";
 			fclose($filehandle);
 			//END-SAVE-BLOG-ENTRY
 			
@@ -98,7 +99,7 @@
 				$captionV = null;
 			
 			//real query
-			$query = "INSERT INTO blogs VALUES('".$ran3."', now(), '".$ran2.$ext."', '". $titleV."', '". $captionV."', '".$_SESSION['id']."');";
+			$query = "INSERT INTO blogs VALUES('".$ran3."', now(), '".$ran2.$ext."', '". $titleV."', '". $captionV."', '".$_SESSION['uname']."');";
 			
 			echo $query;
 			$result = pg_exec($pgsql_conn, $query) or die('Query failed: ' . pg_last_error());

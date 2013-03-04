@@ -1,16 +1,15 @@
 <?php
 	
-	//CAN BE USED FOR HOME TO SHOW EACH BLOG ENTRIES CHRONOLOGICALLY
+	//CAN BE USED FOR HOME TO SHOW EACH BLOG ENTRIES OF THE SIGNED IN USERS CHRONOLOGICALLY
 
 	session_start();
 	
     $pgsql_conn = pg_connect("dbname=postgres host=localhost user=postgres password=12345");
 	
 	//real query
-	//$query = "select * from blogs where owner = '".$_SESSION['id']."' order by date_published limit 10;";
-	
-	//sample query
-	$query = "select * from blogs where owner = 'adrianbiton' order by date_published limit 10;";
+	$query = "select * from blogs order by date_published limit 50;";
+
+	//echo $_SESSION['uname']."--,";
 	
 	$result = pg_query($pgsql_conn, $query);
 	
@@ -47,6 +46,7 @@
 		//echo $row['blog_id']."<br/>";
 		echo "<a href = 'edit_blog.php?name=".$row['blog_id']."'>Edit Blog</a>";
 		echo "<br/>";
+		echo "<a href = 'delete_blog.php?name=".$row['blog_id']."'>Delete Blog</a>";
 		echo "<hr>";
 		
 	}//end-while

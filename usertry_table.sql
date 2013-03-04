@@ -5,7 +5,7 @@
 CREATE TABLE usertry
 (
   username character varying(20) NOT NULL,
-  pword character varying(20),
+  pword character varying(100),
   fname character varying(20),
   mname character varying(20),
   lname character varying(20),

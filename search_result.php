@@ -16,12 +16,16 @@
 	
 	while ($row = pg_fetch_array($result)) {
 		
-		if($row['username'] != $_SESSION['id']){
+		if($row['username'] != $_SESSION['uname']){
 			//TEMPORARY
 			echo "<hr>";
 			
 			//should show DP here
-			//echo "<a href = 'view_profile.php?username=".$row['username']."'><img class = 'img' src = 'dp/".$row['dpic']."'></a><br/>";
+			if($row['dpic'] != '')
+				echo "<a href = 'view_profile.php?username=".$row['username']."'><img class = 'img' src = 'dp/".$row['dpic']."'></a><br/>";
+			else{
+				echo "<a href = 'view_profile.php?username=".$row['username']."'><img class = 'img' src = 'dp/default.jpg'></a><br/>";
+			}
 			
 			echo "<a href = 'view_profile.php?username=".$row['username']."'>".$row['username']."</a>";
 			

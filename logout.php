@@ -1,15 +1,7 @@
 <?php
-session_start();
-session_destroy();
+	session_start();
+	session_destroy();
 
-header("Location: login.php");
-exit;
-
+	header("Location: login.php");
+	exit;
 ?>
-
-<html>
-<head>
-</head>
-<body>
-</body>
-</html>
