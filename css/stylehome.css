@@ -1,0 +1,118 @@
+body{
+  font-family: "Trebuchet MS", Arial, sans-serif;
+	background: url(../images/stucco.png);
+	cursor: crosshair;
+}
+a{
+	text-decoration:none;
+}
+header{
+	background: #2B2B2B;
+	border-radius: 10px;
+}
+#navbar{
+	float:right;
+	display:inline;
+	margin-right: 10%;
+	margin-top: -3%;
+	font-size: 150%;
+	font-family: 'Oswald', sans-serif;
+	text-decoration: none;
+	color: white;
+}
+#navbar ul li {
+	float: left;
+	display: inline;
+	list-style-type: none;
+	text-decoration: none;
+	color: white;
+}
+#logo { 
+	margin-left: 10%;
+	text-transform: uppercase;
+	line-height: 1;
+	padding-bottom: 1px; 
+}
+#logo h1 {
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	font-weight: bold;
+	font-size: 30px;
+}
+#logo h1 a {
+	text-decoration: none;
+	color: white;
+}
+#logo .description {
+	font-size: 10px;
+	color: #cfd2d9;
+}
+#hrtop{
+	margin-top: 4%;
+	width: 0px;
+}
+#navbar li a:hover{
+	text-decoration: none;
+	background: #1B5902;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+#home, #profile, #blogs, #logout{
+	color: white;
+}
+#sidebar{
+	height: 70%;
+	width: 20%;
+	margin-left: 5%;
+	background-color: #F9F0C0;
+	border-radius: 10px;
+}
+#picture{
+	margin: 10% 28%;
+	border: solid;
+}
+#sidebar h3{
+	margin: 0% 35%;
+	color: #663300;
+	font-size: 16pt;
+	font-family: old stamper;
+	text-shadow: 5px 5px 5px #993300;
+}
+#starpic{
+	margin-left: 20%;
+}
+#starcount{
+	position: absolute;
+	top: 53%;
+	left: 16%;
+	font-family: copystruct;
+	color: #FF6633;
+	text-align: left;
+	font-size:18px;
+}
+#linkblog{
+	position: absolute;
+	top: 75%;
+	margin-left: 13%;
+}
+#linkcomment{
+	position: absolute;
+	top: 79%;
+	margin-left: 13%;
+}
+#linkcomment:hover, #linkblog:hover{
+	color:#FFCC33;
+}
+#linkcomment, #linkblog{
+	color: #663300;
+	font-size: 12pt;
+	font-family: old stamper;
+	text-shadow: 5px 5px 5px #993300;
+}
+#main{
+	margin-top:-34.6%;
+	width: 70%;
+	height: 70%;
+	margin-right: 3%;
+	background-color: #D8D7B9;
+	float: right;
+}
