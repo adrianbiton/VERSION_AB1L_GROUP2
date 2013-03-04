@@ -68,7 +68,7 @@
 	
 	//FETCH THE BLOG POSTS OF THE USER
 	echo "<br/><br/>Blog posts<br/><br/>";	
-	$query = "select * from blogs where owner = '".$find."' order by date_published limit 10;";
+	$query = "select * from blogs where owner = '".$find."' order by date_published;";
 	
 	$result = pg_query($pgsql_conn, $query);
 	
