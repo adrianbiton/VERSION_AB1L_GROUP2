@@ -7,7 +7,7 @@
 <html lang="en-US">
 	<head>
 		<title>Add Blog Entry</title>
-		<link href="CSS/style.css" rel="stylesheet" type="text/css">
+		<link href="CSS/styleUI.css" rel="stylesheet" type="text/css">
 		<!--[if IE 6]>
 		<script type="text/ecmascript" src="js/html5.js"></script>
 		<![endif]-->
